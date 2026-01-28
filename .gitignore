@@ -1,0 +1,9 @@
+# Python System Files
+__pycache__/
+*.py[cod]
+
+# Virtual Environment (Huge!)
+venv/
+.env
+
+book.pdf
