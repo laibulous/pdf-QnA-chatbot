@@ -24,7 +24,7 @@ print("Splitting text...")
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
 
-# --- 4. EMBEDDINGS (Local & Free) ---
+# --- 4. EMBEDDINGS ---
 print("Creating embeddings...")
 vectorstore = Chroma.from_documents(
     documents=splits, 
@@ -39,8 +39,8 @@ llm = ChatGoogleGenerativeAI(
     temperature=0
 )
 
-# --- 6. CREATE THE CHAIN (The Fix) ---
-# You MUST define this prompt for create_stuff_documents_chain to work
+# --- 6. CREATE THE CHAIN ---
+# You can refine this prompt according to your needs
 system_prompt = (
     "You are an assistant for question-answering tasks. "
     "Use the following pieces of retrieved context to answer "
@@ -58,23 +58,17 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-# This chains the LLM and the Prompt together
 question_answer_chain = create_stuff_documents_chain(llm, prompt)
-
-# This connects the Retriever (Database) to the Q&A Chain
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
 # --- 7. ASK QUESTION ---
-query = input("Ask a questionn\n")
+query = input("Ask a question\n")
 print(f"\nThinking about: {query}...\n")
-
-# Note: We use "input" here, not "question"
 response = rag_chain.invoke({"input": query})
-
 print("--- RESPONSE ---")
 print(response["answer"])
 
-#AVAILABLE MODELS FOR FREE TIER GEMINI API:
+#AVAILABLE MODELS FOR GOOGLE'S GEMINI API as of JAN 2026:
 # -----------------
 # - models/gemini-2.5-flash
 # - models/gemini-2.5-pro

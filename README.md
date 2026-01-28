@@ -1,6 +1,6 @@
 # AI-Powered PDF Question Answering Chatbot
 
-A Retrieval-Augmented Generation (RAG) pipeline that allows users to chat with their PDF documents. This project uses a hybrid architecture, combining **local embeddings** for privacy and speed with **Google's Gemini Pro** for high-quality natural language reasoning.
+A Retrieval-Augmented Generation (RAG) pipeline that allows users to chat with their PDF documents. This project uses a hybrid architecture, combining **local embeddings** for privacy and speed with **Google's Gemini API** for high-quality natural language reasoning.
 
 ## Features
 - **RAG Architecture:** accurately retrieves context from large documents to prevent LLM hallucinations.
