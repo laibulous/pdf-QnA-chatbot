@@ -16,7 +16,7 @@ if "GOOGLE_API_KEY" not in os.environ:
 # --- 2. LOAD PDF ---
 print("Loading PDF...")
 # Ensure "your_document.pdf" exists in the folder!
-loader = PyPDFLoader("book.pdf")
+loader = PyPDFLoader("your_document.pdf")
 docs = loader.load()
 
 # --- 3. SPLIT TEXT ---

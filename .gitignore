@@ -6,4 +6,5 @@ __pycache__/
 venv/
 .env
 
-book.pdf
+#you can upload your own pdf, I have excluded mine
+book.pdf 
