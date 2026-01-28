@@ -18,11 +18,11 @@ A Retrieval-Augmented Generation (RAG) pipeline that allows users to chat with t
 ## Installation & Setup
 
 1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/laibulous/pdf-QnA-chatbot.git](https://github.com/laibulous/pdf-QnA-chatbot.git)
-   cd pdf-QnA-chatbot
+```bash
+git clone [https://github.com/laibulous/pdf-QnA-chatbot.git](https://github.com/laibulous/pdf-QnA-chatbot.git)
+cd pdf-QnA-chatbot
    
-   ```
+```
 2. **Create a Virtual Environment**
 ```bash
 python3.11 -m venv venv
@@ -58,4 +58,3 @@ python main.py
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-```
