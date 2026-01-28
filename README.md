@@ -19,7 +19,7 @@ A Retrieval-Augmented Generation (RAG) pipeline that allows users to chat with t
 
 1. **Clone the repository**
 ```bash
-git clone [https://github.com/laibulous/pdf-QnA-chatbot.git](https://github.com/laibulous/pdf-QnA-chatbot.git)
+git clone https://github.com/laibulous/pdf-QnA-chatbot.git
 cd pdf-QnA-chatbot 
 ```
 2. **Create a Virtual Environment**
