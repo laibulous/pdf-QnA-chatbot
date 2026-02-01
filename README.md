@@ -2,6 +2,9 @@
 
 A Retrieval-Augmented Generation (RAG) pipeline that allows users to chat with their PDF documents. This project uses a hybrid architecture, combining **local embeddings** for privacy and speed with **Google's Gemini API** for high-quality natural language reasoning.
 
+Live demo:
+[https://pdf-ask-me-anything.streamlit.app](https://pdf-ask-me-anything.streamlit.app)
+
 ## Features
 - **RAG Architecture:** accurately retrieves context from large documents to prevent LLM hallucinations.
 - **Hybrid Search:** Uses `HuggingFace` models locally for zero-cost embedding generation.
