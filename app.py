@@ -1,10 +1,7 @@
-# --- 1. THE SQLITE FIX (CRITICAL FOR CLOUD DEPLOYMENT) ---
-# This must be at the very top before any other imports!
+
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
-# --- 2. STANDARD IMPORTS ---
 import streamlit as st
 import os
 import tempfile
@@ -17,12 +14,9 @@ from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 
-# --- 3. PAGE CONFIG ---
-st.set_page_config(page_title="Chat with PDF", page_icon="📄")
-st.title("📄 Chat with PDF (Powered by Gemini)")
+st.set_page_config(page_title="PDF-Ask-Me-Anything", page_icon="📄")
+st.title("PDF QnA ChatBot")
 
-# --- 4. API KEY SETUP ---
-# We look for the key in Streamlit Secrets first, then environment variable
 if "GOOGLE_API_KEY" in st.secrets:
     os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 else:
@@ -34,8 +28,6 @@ else:
 if "GOOGLE_API_KEY" not in os.environ:
     st.warning("Please enter your Google API Key in the sidebar to continue.")
     st.stop()
-
-# --- 5. FUNCTIONS (Cached for Performance) ---
 
 @st.cache_resource
 def process_pdf(file):
@@ -97,7 +89,7 @@ def get_rag_chain(_vectorstore):
     
     return rag_chain
 
-# --- 6. MAIN UI ---
+# --- MAIN UI ---
 
 uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
 
@@ -119,7 +111,7 @@ if uploaded_file:
                     st.write("### Answer")
                     st.write(response["answer"])
                     
-                    # Optional: Show context for debugging
+                    # Show context for debugging
                     with st.expander("See retrieved context"):
                         for i, doc in enumerate(response["context"]):
                             st.write(f"**Chunk {i+1}:**")
