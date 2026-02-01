@@ -69,7 +69,7 @@ def get_rag_chain(_vectorstore):
     Creates the RAG chain using the vector store.
     """
     llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash", 
+        model="gemini-flash-latest", 
         temperature=0
     )
 
@@ -79,7 +79,7 @@ def get_rag_chain(_vectorstore):
         "You are an assistant for question-answering tasks. "
         "Use the following pieces of retrieved context to answer "
         "the question. If you don't know the answer, say that you "
-        "don't know. Use three sentences maximum and keep the "
+        "don't know. Keep the "
         "answer concise."
         "\n\n"
         "{context}"
